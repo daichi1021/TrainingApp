@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  date: MyString
+  condition: MyString
+  training_detail: MyString
+  running_distance: 1
+
+two:
+  user_id: 1
+  date: MyString
+  condition: MyString
+  training_detail: MyString
+  running_distance: 1

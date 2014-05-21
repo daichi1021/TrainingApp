@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "TrainingApp" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= render 'shared/shim' %>
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+  </head>
+  <body>
+
+  <%= render 'shared/header' %>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+
+        <% if signed_in? %>
+            <%= render 'shared/sidebar' %>
+        <% else %>
+        <% end %>
+
+        <div class="span9">
+          <% flash.each do |key, value| %>
+              <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

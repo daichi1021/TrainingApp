@@ -1,0 +1,16 @@
+<h1>Home</h1>
+<% if signed_in? %>
+    <h1>サインインしています</h1>
+
+    <div class="row">
+      <aside class="span4">
+        <section>
+          <%= render 'shared/training_form' %>
+        </section>
+      </aside>
+    </div>
+
+
+<% else %>
+    <h1>サインインしていません</h1>
+<% end %>

@@ -1,0 +1,10 @@
+<%= @user.name %>, <%= @user.email %>
+
+<div class="span8">
+  <% if @user.trainings.any? %>
+      <h3>Trainings (<%= @user.trainings.count %>)</h3>
+      <ol class="trainings">
+        <%= render @trainings %>
+      </ol>
+  <% end %>
+</div>
