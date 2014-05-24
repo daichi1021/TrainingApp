@@ -18,6 +18,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 
+gem 'fullcalendar-rails'
+
+gem 'html5_validators'
+
 group :doc do
   gem 'sdoc'
 end

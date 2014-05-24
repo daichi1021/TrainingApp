@@ -1,16 +1,80 @@
-<h1>Home</h1>
 <% if signed_in? %>
-    <h1>サインインしています</h1>
 
-    <div class="row">
-      <aside class="span4">
-        <section>
-          <%= render 'shared/training_form' %>
-        </section>
-      </aside>
+    <div>
+      <div class="calendar"></div>
     </div>
 
+    <div>
+      <script>
+          $(function(){
+              $('.calendar').fullCalendar({
+
+                  header: {
+                      left: 'prev,next today',
+                      center: 'title',
+                      right:''
+                  },
+
+                  titleFormat: {
+                      month: 'yyyy年M月',                             // 2013年9月
+                      week: "yyyy年M月d日{ ～ }{[yyyy年]}{[M月]d日}", // 2013年9月7日 ～ 13日
+                      day: "yyyy年M月d日'('ddd')'"                  // 2013年9月7日(火)
+                  },
+
+                  monthNames: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                  monthNamesShort: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                  dayNames: ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'],
+                  dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
+
+                  //editableをtrueにするとClickEventが動かなくなるので、これで無理やりポインタの形状を変える
+                  eventMouseover: function( event, jsEvent, view ) {
+                      $(this).css("cursor","pointer");
+                  },
+
+                  dayClick: function(date, allDay, jsEvent, view) {
+                      $("<%=j render 'shared/create_form',
+                    selectDateValue:'selectDate',
+                    selectTitleValue:'',
+                    idData:'',
+                    deleteIdData:'',
+                    conditionData:'',
+                    distanceData:''%>"
+                              .replace("selectDate",formatDate('YYYY-MM-DD', date))).modal('show')
+                  },
+
+                  eventClick: function(calEvent, jsEvent, view) {
+                      $("<%=j render 'shared/edit_form',
+                    selectDateValue:'selectDate',
+                    selectTitleValue:'selectTitle',
+                    idData:'selectId',
+                    deleteIdData:'selectDeleteId',
+                    conditionData:'selectCondition',
+                    distanceData:'selectDistance'%>"
+                              .replace("selectDate",formatDate('YYYY-MM-DD', calEvent.start))
+                              .replace('selectTitle', calEvent.title)
+                              .replace('selectId', calEvent.id)
+                              .replace('selectDeleteId', calEvent.id)
+                              .replace('selectCondition', calEvent.condition)
+                              .replace('selectDistance', calEvent.running_distance)).modal('show')
+
+                  },
+                  eventSources: [
+                      {
+                          events: <%=raw @trainings %>
+                      }
+                  ]
+              });
+          });
+      </script>
+    </div>
+    <br>
 
 <% else %>
-    <h1>サインインしていません</h1>
+
+    <div class="hero-unit" align="center">
+      <h1>TrainingApp</h1>
+      <br>
+      <%= link_to 'Sign up', signup_path, class: 'btn btn-large btn-primary' %>
+    </div>
+
 <% end %>

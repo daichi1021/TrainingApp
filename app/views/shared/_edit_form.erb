@@ -1,0 +1,41 @@
+<% modal ||= false %>
+<% remote = modal ? true : false %>
+
+<div id="modalform" class="modal hide fade">
+
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Edit</h3>
+  </div>
+
+  <div class="modal-body">
+    <%= form_for(@training, remote:remote, :validate => true, :url => {:controller => :trainings, :action => :update, :id => idData }) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.hidden_field :id, value:idData %>
+
+        <%= f.label :date, '日付'%>
+        <%= f.text_field :date, value:selectDateValue %>
+
+        <%= f.label :training_detail, '練習内容' %>
+        <%= f.text_field :training_detail, value:selectTitleValue %>
+
+        <%= f.label :condition, 'コンディション' %>
+        <%= f.text_field :condition, value:conditionData %>
+
+        <%= f.label :running_distance, '走行距離' %>
+        <%= f.number_field :running_distance, value:distanceData %>
+
+        <br>
+
+          <div>
+            <%= f.submit '更新', class: 'btn btn-large btn-primary' %>
+            <span style="float:right">
+            <%= link_to "削除", training_path(deleteIdData), method: :delete,class: 'btn btn-large btn-danger', data: { confirm: "削除しますか?" } %>
+            </span>
+          </div>
+
+    <% end %>
+  </div>
+
+</div>
