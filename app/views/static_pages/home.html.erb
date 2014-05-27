@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <% if signed_in? %>
 
     <div>
@@ -16,9 +17,7 @@
                   },
 
                   titleFormat: {
-                      month: 'yyyy年M月',                             // 2013年9月
-                      week: "yyyy年M月d日{ ～ }{[yyyy年]}{[M月]d日}", // 2013年9月7日 ～ 13日
-                      day: "yyyy年M月d日'('ddd')'"                  // 2013年9月7日(火)
+                      month: 'yyyy年M月'
                   },
 
                   monthNames: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
@@ -70,6 +69,7 @@
     <br>
 
 <% else %>
+
     <div class="container-fluid">
     <div class="hero-unit" align="center">
       <h1><div class="page-header">TrainingApp</div></h1>
