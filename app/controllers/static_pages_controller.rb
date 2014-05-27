@@ -12,6 +12,7 @@ class StaticPagesController < ApplicationController
       tr = @user.trainings.all.select(:id, 'date AS start', 'training_detail AS title' , :condition, :running_distance)
       @trainings = ActiveSupport::JSON.encode(tr)
     end
+
   end
 
 
