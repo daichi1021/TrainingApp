@@ -70,11 +70,17 @@
 <% else %>
 
     <div class="container-fluid">
-    <div class="hero-unit" align="center">
-      <h1><div class="page-header">TrainingApp</div></h1>
-      <br>
-      <%= link_to 'Sign up', signup_path, class: 'btn btn-large btn-primary' %>
-    </div>
+      <div class="hero-unit" align="center">
+
+        <% if request.smart_phone? %>
+            <h2><div class="page-header">TrainingApp</div></h2>
+        <% else %>
+            <h1><div class="page-header">TrainingApp</div></h1>
+        <% end %>
+
+        <br>
+        <%= link_to 'Sign up', signup_path, class: 'btn btn-large btn-primary' %>
       </div>
+    </div>
 
 <% end %>

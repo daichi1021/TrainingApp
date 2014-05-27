@@ -170,6 +170,7 @@
     <orderEntry type="library" scope="PROVIDED" name="html5_validators (v1.1.2, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.9, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.0.7, rbenv: 2.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jpmobile (v4.1.0, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v3.1.0, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="less (v2.5.0, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="less-rails (v2.5.0, rbenv: 2.1.1) [gem]" level="application" />

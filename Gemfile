@@ -22,6 +22,8 @@ gem 'fullcalendar-rails'
 
 gem 'html5_validators'
 
+gem 'jpmobile'
+
 group :doc do
   gem 'sdoc'
 end
