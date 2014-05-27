@@ -72,15 +72,25 @@
     <div class="container-fluid">
       <div class="hero-unit" align="center">
 
-        <% if request.smart_phone? %>
-            <h2><div class="page-header">TrainingApp</div></h2>
-        <% else %>
-            <h1><div class="page-header">TrainingApp</div></h1>
-        <% end %>
+        <div id="container">
+          <p class="res">TrainingApp</p>
+        </div>
 
         <br>
         <%= link_to 'Sign up', signup_path, class: 'btn btn-large btn-primary' %>
       </div>
     </div>
+
+    <script>
+        var res = document.querySelector(".res");
+        window.onload = function(){
+            res.style.fontSize = "20px";
+        };
+        window.onresize = function(){
+            var w = window.innerWidth;
+            size = w / 10;
+            res.style.fontSize = size+"px";
+        }
+    </script>
 
 <% end %>

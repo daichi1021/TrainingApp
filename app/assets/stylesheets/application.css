@@ -14,13 +14,3 @@
  *= require_self
   *= require fullcalendar
 */
-
-canvas {
-    height: auto !important;
-    width: 50% !important;
-}
-
-.bar_canvas {
-    height: auto !important;
-    width: 60% !important;
-}
