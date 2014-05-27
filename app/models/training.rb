@@ -4,9 +4,9 @@ class Training < ActiveRecord::Base
   belongs_to :user
 
   validates :user_id, presence: true
-
   validates :date, presence: true
   validates :training_detail, presence: true
+  validates :running_distance, presence: true
 
   validates_numericality_of :running_distance
 
