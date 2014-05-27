@@ -1,2 +1,17 @@
 <h1>About</h1>
-<h3>色々追加予定</h3>
+<div align="center">
+  <canvas id="bar" height="450" width="600"></canvas>
+</div>
+<script>
+    var barChartData = {
+        labels : ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+        datasets : [
+            {
+                fillColor : "#3c9cdd",
+                strokeColor : "#2980b9",
+                data : [110,210,108,298,143,55,451,441,201,100,325,100]
+            }
+        ]
+    }
+    var myLine = new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+</script>

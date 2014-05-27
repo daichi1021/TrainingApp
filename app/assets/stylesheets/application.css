@@ -15,6 +15,7 @@
   *= require fullcalendar
 */
 
-body {
-    word-wrap:normal;
+canvas {
+    height: auto !important;
+    width: 50% !important;
 }
